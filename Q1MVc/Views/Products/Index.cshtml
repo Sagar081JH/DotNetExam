@@ -1,0 +1,39 @@
+﻿@model System.Data.DataTable
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<h2>Products</h2>
+
+<div>
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th>Product Id</th>
+            <th>Product Name</th>
+            <th>Rate</th>
+            <th>Description</th>
+            <th>Category Name</th>
+        </tr>
+        @for (int i = 0; i < Model.Rows.Count; i++)
+        {
+            <tr>
+                <td><a href="@Url.Action("Edit", "Products", new { @id = Model.Rows[i][0] })">@Model.Rows[i][0]</a></td>
+                <td>@Model.Rows[i][1]</td>
+                <td>@Model.Rows[i][2]</td>
+                <td>@Model.Rows[i][3]</td>
+                <td>@Model.Rows[i][4]</td>
+            </tr>
+        }
+    </table>
+    
+    <h4> @Html.ActionLink("Add a New Product", "Create")</h4>
+</div>
+<hr />
+<div>
+    <h4>Created By :- Sagar Ramdas Ghumare</h4>
+    <h5>Center :- Juhu</h5>
+    <h5>Roll No. :- 210940520081</h5>
+</div>
+
